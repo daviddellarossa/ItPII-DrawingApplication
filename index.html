@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="x-ua-compatible" content="IE=10">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Title</title>
+    <script src="scripts/p5/p5.js"></script>
+    <script src="scripts/p5/p5.dom.js"></script>
+
+    <script src="scripts/compression/runLengthEncoding.js"></script>
+
+    <script src="scripts/commands/handles/bbox.js"></script>
+    <script src="scripts/commands/handles/handle.js"></script>
+
+    <!-- History Manager -->
+    <script src="scripts/history/historyItem.js"></script>
+    <script src="scripts/history/historyManager.js"></script>
+
+    <!-- commands -->
+    <script src="scripts/commands/toolCommand.js"></script>
+    <script src="scripts/commands/lineCommands/lineCommand.js"></script>
+    <script src="scripts/commands/lineCommands/polylineCommand.js"></script>
+    <script src="scripts/commands/freehandCommands/freehandCommand.js"></script>
+    <script src="scripts/commands/freehandCommands/penCommand.js"></script>
+    <script src="scripts/commands/freehandCommands/eraserCommand.js"></script>
+    <script src="scripts/commands/freehandCommands/sprayCommand.js"></script>
+    <script src="scripts/commands/selectionCommand/selectionCommand.js"></script>
+    <script src="scripts/commands/shapeCommands/shapeCommand.js"></script>
+    <script src="scripts/commands/shapeCommands/polygonCommand.js"></script>
+
+    <script src="scripts/commands/commandState.js"></script>
+
+    <!-- LineCommand's states -->
+    <script src="scripts/commands/lineCommands/states/lcState.js"></script>
+    <script src="scripts/commands/lineCommands/states/lcIdleState.js"></script>
+    <script src="scripts/commands/lineCommands/states/lcPointState.js"></script>
+    <script src="scripts/commands/lineCommands/states/lcLineState.js"></script>
+    <script src="scripts/commands/lineCommands/states/lcPolygonState.js"></script>
+    <script src="scripts/commands/lineCommands/states/lcCloseState.js"></script>
+    <script src="scripts/commands/lineCommands/states/lcFinalizeState.js"></script>
+
+    <!-- FreehandCommand's states -->
+    <script src="scripts/commands/freehandCommands/states/fcState.js"></script>
+    <script src="scripts/commands/freehandCommands/states/penIdleState.js"></script>
+    <script src="scripts/commands/freehandCommands/states/eraserIdleState.js"></script>
+    <script src="scripts/commands/freehandCommands/states/penDrawState.js"></script>
+    <script src="scripts/commands/freehandCommands/states/sprayDrawState.js"></script>
+    <script src="scripts/commands/freehandCommands/states/eraserDrawState.js"></script>
+    <script src="scripts/commands/freehandCommands/states/penFinalizeState.js"></script>
+    <script src="scripts/commands/freehandCommands/states/eraserFinalizeState.js"></script>
+    <script src="scripts/commands/freehandCommands/states/sprayFinalizeState.js"></script>
+    <script src="scripts/commands/freehandCommands/states/sprayIdleState.js"></script>
+
+    <!-- Strategies for SelectionCommand's states -->
+    <script src="scripts/commands/selectionCommand/states/resizeStrategy.js"></script>
+    <script src="scripts/commands/selectionCommand/states/diagonalResizeStrategy.js"></script>
+    <script src="scripts/commands/selectionCommand/states/horizontalResizeStrategy.js"></script>
+    <script src="scripts/commands/selectionCommand/states/verticalResizeStrategy.js"></script>
+
+    <!-- SelectionCommand's states -->
+    <script src="scripts/commands/selectionCommand/states/slState.js"></script>
+    <script src="scripts/commands/selectionCommand/states/slIdleState.js"></script>
+    <script src="scripts/commands/selectionCommand/states/slMovePastedSelectionState.js"></script>
+    <script src="scripts/commands/selectionCommand/states/slMoveSelectionState.js"></script>
+    <script src="scripts/commands/selectionCommand/states/slPasteState.js"></script>
+    <script src="scripts/commands/selectionCommand/states/slResizeSelectionState.js"></script>
+    <script src="scripts/commands/selectionCommand/states/slSelectionCompleteState.js"></script>
+    <script src="scripts/commands/selectionCommand/states/slStartSelectionState.js"></script>
+    <script src="scripts/commands/selectionCommand/states/slFinalizeState.js"></script>
+
+    <!-- PolygonCommand's states -->
+    <script src="scripts/commands/shapeCommands/states/scState.js"></script>
+    <script src="scripts/commands/shapeCommands/states/scIdleState.js"></script>
+    <script src="scripts/commands/shapeCommands/states/scSetCentreState.js"></script>
+    <script src="scripts/commands/shapeCommands/states/scMoveCtrlPointsState.js"></script>
+    <script src="scripts/commands/shapeCommands/states/scSetSizeState.js"></script>
+    <script src="scripts/commands/shapeCommands/states/scFinalizeState.js"></script>
+    <script src="scripts/commands/shapeCommands/states/scPolygonSetState.js"></script>
+    <script src="scripts/commands/shapeCommands/states/scMoveSelectionState.js"></script>
+    <script src="scripts/commands/shapeCommands/states/scResizeAndRotateStarState.js"></script>
+    <script src="scripts/commands/shapeCommands/states/scStarSetState.js"></script>
+
+    <!-- CommandState factories -->
+    <script src="scripts/commands/stateFactory.js"></script>
+    <script src="scripts/commands/lineCommands/states/lcStateFactory.js"></script>
+    <script src="scripts/commands/lineCommands/states/polylineStateFactory.js"></script>
+    <script src="scripts/commands/freehandCommands/states/fcStateFactory.js"></script>
+    <script src="scripts/commands/freehandCommands/states/penStateFactory.js"></script>
+    <script src="scripts/commands/freehandCommands/states/sprayStateFactory.js"></script>
+    <script src="scripts/commands/freehandCommands/states/eraserStateFactory.js"></script>
+    <script src="scripts/commands/shapeCommands/states/scStateFactory.js"></script>
+    <script src="scripts/commands/shapeCommands/states/polygonStateFactory.js"></script>
+    <script src="scripts/commands/selectionCommand/states/selectionStateFactory.js"></script>
+
+    <!-- Filters -->
+    <script src="scripts/filters/filterManager.js"></script>
+    <script src="scripts/filters/p5Proxy.js"></script>
+    <script src="scripts/filters/filter.js"></script>
+    <script src="scripts/filters/mirrorFilter.js"></script>
+
+    <!-- Toolbox -->
+    <script src="scripts/toolbox/toolbox.js"></script>
+    <script src="scripts/toolbox/tools/tool.js"></script>
+    <script src="scripts/toolbox/tools/toolButton.js"></script>
+    <script src="scripts/toolbox/tools/toolToggle.js"></script>
+    <script src="scripts/toolbox/tools/toolSeparator.js"></script>
+    <script src="scripts/toolbox/tools/polylineTool.js"></script>
+    <script src="scripts/toolbox/tools/penTool.js"></script>
+    <script src="scripts/toolbox/tools/mirrorTool.js"></script>
+    <script src="scripts/toolbox/tools/sprayTool.js"></script>
+    <script src="scripts/toolbox/tools/polygonTool.js"></script>
+    <script src="scripts/toolbox/tools/selectionTool.js"></script>
+
+    <!-- Stylesheet -->
+    <link rel="stylesheet" href="stylesheet/bootstrap-3.0.0.min.css">
+    <link rel="stylesheet" href="stylesheet/pick-a-color.css">
+    <link href="stylesheet/stylesheet.css" rel="stylesheet">
+
+    <!-- Main sketch -->
+    <script src="scripts/colour-picker/colourPicker.js"></script>
+
+    <script src="scripts/sketch.js"></script>
+
+
+
+</head>
+<body>
+    <div class="wrapper">
+        <header class="box header">
+            <span>My Drawing App</span>
+            <button class="btn" id="clearButton"><img src="assets/note_add-24px.svg" title="Clear document" alt="Clear"></button>
+            <button class="btn" id="saveImageButton"><img src="assets/save_alt-24px.svg" title="Save document" alt="Save"></button>
+            <button class="btn" id="undoButton"><img src="assets/undo-24px.svg" title="Undo the last action" alt="Undo"></button>
+            <button class="btn" id="redoButton"><img src="assets/redo-24px.svg" title="Redo the previously undone action" alt="Redo"></button>
+        </header>
+        <div class="box" id="sidebar">
+            <div id="toolbar"></div>
+            <div id="colour_picker" class="box colourPalette">
+                <div>
+                    <input alt="fore colour" class="pick-a-color form-control" id="fore-colour" name="fore-colour" type="text" value="000">
+                </div>
+            </div>
+        </div>
+        <div id="content"></div>
+        <div id="options" class="box options footer"></div>
+        <div id="empty-ll box"></div>
+        <div id="tips" class="box tips footer">
+            <div id="tip_header">Hints:</div>
+            <div id="tip_content"></div>
+        </div>
+    </div>
+
+    <script src="scripts/dependencies/jquery-1.9.1.min.js"></script>
+    <script src="scripts/dependencies/tinycolor-0.9.15.min.js"></script>
+    <script src="scripts/colour-picker/pick-a-color.js"></script>
+</body>
+</html>

@@ -1,0 +1,121 @@
+@bgColor: #888;
+@bgHoverColor: #888;
+
+html, body {
+  margin: 0;
+  height: 100%;
+  overflow: hidden;
+}
+#sidebar {
+  grid-area: sidebar;
+}
+#content {
+  grid-area: content;
+  background-color: white;
+}
+
+header {
+  grid-area: header;
+  font-family: Helvetica, sans-serif;
+  padding:5px;
+  background-color: @bgColor;
+}
+
+header button{
+  background-color: @bgColor;
+}
+
+.btn{
+  padding: unset;
+  background-color: @bgColor;
+}
+
+.toolBarItem{
+  max-height: 80px;
+  max-width: 50px;
+  padding:5px;
+}
+
+.toolBarItem img{
+  width: 2.5em;
+}
+
+/*.toolBarItem:not(.toolBarSeparator):hover{*/
+/*    background-color: #888888;*/
+/*}*/
+.toolBarSeparator{
+  padding-top: 50px;
+  border-bottom: solid 2px @bgColor;
+}
+
+.options{
+  grid-area: options;
+  /*padding: 15px;*/
+}
+
+#empty-ll{
+  grid-area: empty-ll;
+}
+
+.wrapper {
+  display: grid;
+  height: 100%;
+  grid-template-columns: fit-content(30px) 50% 25% 25%;
+  grid-template-rows: fit-content(35px) auto 160px;
+  grid-template-areas:
+          "header header header header"
+          "sidebar content content content"
+          "empty-ll options tips tips";
+  background-color: #666666;
+  color: #444;
+}
+.box {
+  /*background-color: #444;*/
+  color: #fff;
+  /*font-size: 100%;*/
+}
+
+.tips{
+  grid-area: tips;
+}
+
+.pick-a-color-markup {
+  margin:0 0;
+}
+output{
+  display: inline;
+  padding: 0;
+  color: #cccccc;
+}
+
+label{
+  margin: 0;
+  font-weight: unset;
+  width: 50%;
+  max-width: 200px;
+
+}
+
+.footer{
+  padding: 10px;
+}
+
+.tb_option_container{
+  border: 1px solid #555555;
+  padding: 5px;
+}
+
+.tb_option  {
+  display: flex;
+  align-items: center;
+  margin: 5px;
+}
+.tb_option *{
+  padding: 0 5px;
+}
+
+#tip_header{
+  font-weight: bold;
+  color: white;
+  padding-bottom: 10px;
+}
